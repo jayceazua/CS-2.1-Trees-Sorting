@@ -1,6 +1,4 @@
 #!python
-
-
 def is_sorted(items):
   """Return a boolean indicating whether given items are in sorted order.
   TODO: Running time: O(n) Why and under what conditions?
@@ -16,10 +14,10 @@ def is_sorted(items):
 
 
 
-def bubble_sort(items):
+def bubble_sort(items, order=True):
   """Sort given items by swapping adjacent items that are out of order, and
   repeating until all items are in sorted order.
-  TODO: Running time: O(n * n-1) Why and under what conditions?
+  TODO: Running time: O(n^2) Why and under what conditions?
     Because each iteration we subtract 1 from the input size.
   TODO: 
   Memory usage: O(1) 
@@ -37,9 +35,16 @@ def bubble_sort(items):
     if swapped:
         swapped = False
         for index in range(last_sorted - 1):
-          if items[index] > items[index + 1]:
-            items[index], items[index + 1] = items[index + 1], items[index]
-            swapped = True
+          if order:
+            # ascending order
+            if items[index] > items[index + 1]:
+              items[index], items[index + 1] = items[index + 1], items[index]
+              swapped = True
+          else:
+            # decending order
+            if items[index] < items[index + 1]:
+              items[index], items[index + 1] = items[index + 1], items[index]
+              swapped = True
     else:
         # we do not need to return the items value it changes the state of the input array
         return items
@@ -50,12 +55,36 @@ def bubble_sort(items):
 def selection_sort(items):
   """Sort given items by finding minimum item, swapping it with first
   unsorted item, and repeating until all items are in sorted order.
-  TODO: Running time: ??? Why and under what conditions?
-  TODO: Memory usage: ??? Why and under what conditions?"""
+  TODO: Running time: O(n^2) Why and under what conditions?
+    Because we save the first index then loop through the array multiple times.
+  TODO: Memory usage: O(1) Why and under what conditions?
+    Because we are doing the swaps in place.
+  """
   # TODO: Repeat until all items are in sorted order
   # TODO: Find minimum item in unsorted items
   # TODO: Swap it with first unsorted item
-  pass
+  
+  first = 0
+  smallest = None
+  # swapped = True
+  while first < (len(items) - 1):
+
+    for i in range(first+1, len(items)):
+
+      if smallest == None:
+        smallest = items[first]
+
+      if items[i] < smallest:
+        smallest = items[i]
+        items[first], items[i] = items[i], items[first]
+
+    first += 1
+    smallest = None
+
+  return items
+
+
+
 
 
 def insertion_sort(items):

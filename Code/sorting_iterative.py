@@ -88,8 +88,11 @@ def selection_sort(items):
 def insertion_sort(items):
     """Sort given items by taking first unsorted item, inserting it in sorted
     order in front of items, and repeating until all items are in order.
-    TODO: Running time: ??? Why and under what conditions?
-    TODO: Memory usage: ??? Why and under what conditions?"""
+    TODO: Running time: O(n^2) Why and under what conditions?
+      Because we go through the list multiple times.
+    TODO: Memory usage: O(1) Why and under what conditions?
+      Because it is in-place sorting and we are not using external memory.
+    """
     # TODO: Repeat until all items are in sorted order
     # TODO: Take first unsorted item
     # TODO: Insert it in sorted order in front of items

@@ -2,11 +2,78 @@
 def merge(items1, items2):
     """Merge given lists of items, each assumed to already be in sorted order,
     and return a new list containing all items in sorted order.
-    TODO: Running time: ??? Why and under what conditions?
-    TODO: Memory usage: ??? Why and under what conditions?"""
+    TODO: Running time: O(n) Why and under what conditions?
+    TODO: Memory usage: O(n) Why and under what conditions?"""
     # TODO: Repeat until one list is empty
     # TODO: Find minimum item in both lists and append it to new list
     # TODO: Append remaining items in non-empty list to new list
+    sorted_list = []
+
+    while len(items1) > 0 and len(items2) > 0:
+
+        if items1[0] > items2[0]:
+            sorted_list.append(items2.pop(0))
+        else:
+            sorted_list.append(items1.pop(0))
+
+    sorted_list.extend(items1)
+    del items1
+    sorted_list.extend(items2)
+    del items2
+
+    return sorted_list
+
+    # front = 0
+    # back = (len(items1) - 1)
+    
+    # while len(items2) > 0:
+    #     value = items2.pop()
+        
+    #     while front <= back:
+    #         pivot = ((front + back) // 2)
+            
+    #         # if p f and b all equal the same index
+    #         if front == back:
+    #             # if the value is greater append at the back
+    #             if value > items1[back]:
+    #                 items1.insert(back + 1, value)
+    #                 break
+    #             # if the value is less than insert at index 0
+    #             if items1[back] < value:
+    #                 items1.insert(0, value)
+    #                 break
+    #             # if the value is equal to the value insert at index 0
+                
+            
+    #         # if f, p, and b are greater than the value
+    #         if items1[front] > value:
+    #             # insert the value before f and p
+    #             items1.insert(front, value)
+    #             break
+            
+    #         # if b, p, and f are less than the value
+    #         if items1[back] < value:
+    #             # insert the value after b and p
+    #             items1.insert(back + 1, value)
+    #             break
+            
+    #         if items1[pivot] > value:
+    #             back = pivot - 1
+                
+    #         elif items1[pivot] < value:
+    #             front = pivot + 1
+            
+            
+    #         elif items1[pivot] == value:
+    #             items1.insert(pivot + 1, value)
+    #             break
+                
+            
+    #     front = 0
+    #     back = (len(items1) - 1)
+    
+    # return items1
+           
       
 def split_sort_merge(items):
     """Sort given items by splitting list into two approximately equal halves,

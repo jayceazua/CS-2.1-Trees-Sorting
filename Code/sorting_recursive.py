@@ -22,16 +22,13 @@ def merge(items1, items2):
     del items2
 
     return sorted_list
-
+    
     # front = 0
     # back = (len(items1) - 1)
-    
     # while len(items2) > 0:
-    #     value = items2.pop()
-        
+    #     value = items2.pop() 
     #     while front <= back:
-    #         pivot = ((front + back) // 2)
-            
+    #         pivot = ((front + back) // 2)       
     #         # if p f and b all equal the same index
     #         if front == back:
     #             # if the value is greater append at the back
@@ -43,35 +40,25 @@ def merge(items1, items2):
     #                 items1.insert(0, value)
     #                 break
     #             # if the value is equal to the value insert at index 0
-                
-            
     #         # if f, p, and b are greater than the value
     #         if items1[front] > value:
     #             # insert the value before f and p
     #             items1.insert(front, value)
     #             break
-            
     #         # if b, p, and f are less than the value
     #         if items1[back] < value:
     #             # insert the value after b and p
     #             items1.insert(back + 1, value)
     #             break
-            
     #         if items1[pivot] > value:
-    #             back = pivot - 1
-                
+    #             back = pivot - 1      
     #         elif items1[pivot] < value:
     #             front = pivot + 1
-            
-            
     #         elif items1[pivot] == value:
     #             items1.insert(pivot + 1, value)
     #             break
-                
-            
     #     front = 0
     #     back = (len(items1) - 1)
-    
     # return items1
            
       

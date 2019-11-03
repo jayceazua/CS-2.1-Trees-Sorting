@@ -3,7 +3,10 @@ def merge(items1, items2):
     """Merge given lists of items, each assumed to already be in sorted order,
     and return a new list containing all items in sorted order.
     TODO: Running time: O(n) Why and under what conditions?
-    TODO: Memory usage: O(n) Why and under what conditions?"""
+        because regardless of items1 or items2 we would need to traverse through the length of one.
+    TODO: Memory usage: O(n) Why and under what conditions?
+        because it creates a new list of a sorted list.    
+    """
     # TODO: Repeat until one list is empty
     # TODO: Find minimum item in both lists and append it to new list
     # TODO: Append remaining items in non-empty list to new list

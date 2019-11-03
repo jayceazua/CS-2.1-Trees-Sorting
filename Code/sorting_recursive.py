@@ -1,4 +1,6 @@
 #!python
+from Code.sorting_iterative import insertion_sort
+
 def merge(items1, items2):
     """Merge given lists of items, each assumed to already be in sorted order,
     and return a new list containing all items in sorted order.
@@ -59,7 +61,7 @@ def merge(items1, items2):
     #     back = (len(items1) - 1)
     # return items1
 
-from Code.sorting_iterative import insertion_sort
+
 def split_sort_merge(items):
     """Sort given items by splitting list into two approximately equal halves,
     sorting each with an iterative sorting algorithm, and merging results into

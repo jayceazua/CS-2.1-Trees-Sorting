@@ -5,7 +5,7 @@ def merge(items1, items2):
     TODO: Running time: O(n) Why and under what conditions?
         because regardless of items1 or items2 we would need to traverse through the length of one.
     TODO: Memory usage: O(n) Why and under what conditions?
-        because it creates a new list of a sorted list.    
+        because it creates a new list of a sorted list of two n inputs   
     """
     # TODO: Repeat until one list is empty
     # TODO: Find minimum item in both lists and append it to new list
@@ -24,9 +24,9 @@ def merge(items1, items2):
     # front = 0
     # back = (len(items1) - 1)
     # while len(items2) > 0:
-    #     value = items2.pop() 
+    #     value = items2.pop()
     #     while front <= back:
-    #         pivot = ((front + back) // 2)       
+    #         pivot = ((front + back) // 2)
     #         # if p f and b all equal the same index
     #         if front == back:
     #             # if the value is greater append at the back
@@ -49,7 +49,7 @@ def merge(items1, items2):
     #             items1.insert(back + 1, value)
     #             break
     #         if items1[pivot] > value:
-    #             back = pivot - 1      
+    #             back = pivot - 1
     #         elif items1[pivot] < value:
     #             front = pivot + 1
     #         elif items1[pivot] == value:
@@ -58,17 +58,26 @@ def merge(items1, items2):
     #     front = 0
     #     back = (len(items1) - 1)
     # return items1
-           
-      
+
+from Code.sorting_iterative import insertion_sort
 def split_sort_merge(items):
     """Sort given items by splitting list into two approximately equal halves,
     sorting each with an iterative sorting algorithm, and merging results into
     a list in sorted order.
-    TODO: Running time: ??? Why and under what conditions?
-    TODO: Memory usage: ??? Why and under what conditions?"""
+    TODO: Running time: O(n^2) Why and under what conditions?
+        because it uses an iterative sorting algorithm; insertion sort. 
+    TODO: Memory usage: O(n) Why and under what conditions?
+        because it creates a new list of sorted items and does not do this in-place
+    """
     # TODO: Split items list into approximately equal halves
+    pivot = len(items) // 2
+    unsorted_list1 = items[:pivot] # O(n/2) space
+    unsorted_list2 = items[pivot:] # O(n/2) space
     # TODO: Sort each half using any other sorting algorithm
+    sorted_list1 = insertion_sort(unsorted_list1) # O(n^2) runtime and O(n/2) space
+    sorted_list2 = insertion_sort(unsorted_list2) # O(n^2) runtime and O(n/2) space
     # TODO: Merge sorted halves into one list in sorted order
+    sorted_list = merge(sorted_list1, sorted_list2) # O(n) runtime and space
 
 
 def merge_sort(items):
@@ -80,6 +89,7 @@ def merge_sort(items):
     # TODO: Split items list into approximately equal halves
     # TODO: Sort each half by recursively calling merge sort
     # TODO: Merge sorted halves into one list in sorted order
+
 
 def partition(items, low, high):
     """Return index `p` after in-place partitioning given items in range
@@ -93,6 +103,7 @@ def partition(items, low, high):
     # TODO: Move items less than pivot into front of range [low...p-1]
     # TODO: Move items greater than pivot into back of range [p+1...high]
     # TODO: Move pivot item into final position [p] and return index p
+
 
 def quick_sort(items, low=None, high=None):
     """Sort given items in place by partitioning items in range `[low...high]`

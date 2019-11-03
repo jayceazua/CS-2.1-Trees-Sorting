@@ -127,8 +127,7 @@ def split_sort_merge(items):
     #         pivot += 1
     #     else:
     #         start += 1
-
-
+    
 def merge_sort(items):
     """Sort given items by splitting list into two approximately equal halves,
     sorting each recursively, and merging results into a list in sorted order.

@@ -11,21 +11,16 @@ def merge(items1, items2):
     # TODO: Find minimum item in both lists and append it to new list
     # TODO: Append remaining items in non-empty list to new list
     sorted_list = []
-
     while len(items1) > 0 and len(items2) > 0:
-
         if items1[0] > items2[0]:
             sorted_list.append(items2.pop(0))
         else:
             sorted_list.append(items1.pop(0))
-
     sorted_list.extend(items1)
     del items1
     sorted_list.extend(items2)
     del items2
-
     return sorted_list
-    
     # front = 0
     # back = (len(items1) - 1)
     # while len(items2) > 0:

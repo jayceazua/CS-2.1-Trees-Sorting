@@ -98,20 +98,20 @@ def insertion_sort(items):
     # TODO: Insert it in sorted order in front of items
     sorted_list_index = 0
     for i in range(sorted_list_index + 1, len(items)):
-        current_element = items[i]  # pop the element out of the array?
+        current_element = items.pop(i)  # pop the element out of the array?
 
         for j in range(sorted_list_index, -1, -1):
             comparison_element = items[j]
 
             if j == 0 and comparison_element > current_element:
-                items.pop(i)
                 items.insert(0, current_element)
-                break
+
+            elif j == 0 and comparison_element == current_element:
+                items.insert(j + 1, current_element)
 
             elif comparison_element < current_element:
                 # break the loop
-                items.pop(i)
-                items.insert(j+1, current_element)
+                items.insert(j + 1, current_element)
                 break
 
         sorted_list_index += 1

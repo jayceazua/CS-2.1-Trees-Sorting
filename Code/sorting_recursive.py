@@ -1,5 +1,5 @@
 #!python
-from Code.sorting_iterative import insertion_sort
+from sorting_iterative import selection_sort
 
 def merge(items1, items2):
     """Merge given lists of items, each assumed to already be in sorted order,
@@ -76,8 +76,10 @@ def split_sort_merge(items):
     unsorted_list1 = items[:pivot] # O(n/2) space
     unsorted_list2 = items[pivot:] # O(n/2) space
     # TODO: Sort each half using any other sorting algorithm
-    sorted_list1 = insertion_sort(unsorted_list1) # O(n^2) runtime and O(n/2) space
-    sorted_list2 = insertion_sort(unsorted_list2) # O(n^2) runtime and O(n/2) space
+    # O(n^2) runtime and O(n/2) space
+    sorted_list1 = selection_sort(unsorted_list1)
+    # O(n^2) runtime and O(n/2) space
+    sorted_list2 = selection_sort(unsorted_list2)
     # TODO: Merge sorted halves into one list in sorted order
     sorted_list = merge(sorted_list1, sorted_list2) # O(n) runtime and space
 

@@ -1,6 +1,7 @@
 #!python
 from sorting_iterative import selection_sort, insertion_sort
 
+
 def merge(items1, items2):
     """Merge given lists of items, each assumed to already be in sorted order,
     and return a new list containing all items in sorted order.
@@ -75,59 +76,18 @@ def split_sort_merge(items):
     # TODO: Split items list into approximately equal halves
     pivot = len(items) // 2
     # TODO: Sort each half using any other sorting algorithm
-        # sort first half in-place (insertion sort)
+    # sort first half in-place (insertion sort)
     left = insertion_sort(items[:pivot])
-    # sorted_list_index = 0
-    # for i in range(sorted_list_index + 1, pivot):
-    #     current_element = items.pop(i)  # pop the element out of the array?
-    #     for j in range(sorted_list_index, -1, -1):
-    #         # improvement - binary insert
-    #         comparison_element = items[j]
-    #         if j == 0 and comparison_element > current_element:
-    #             items.insert(0, current_element)
-    #         elif j == 0 and comparison_element == current_element:
-    #             items.insert(j + 1, current_element)
-    #         elif comparison_element < current_element:
-    #             # break the loop
-    #             items.insert(j + 1, current_element)
-    #             break
-    #     sorted_list_index += 1
+
     right = insertion_sort(items[pivot:])
-    # sort second half in-place (insertion sort)
-    # sorted_list_index = pivot
-    # for i in range(sorted_list_index + 1, len(items)):
-    #     current_element = items.pop(i)  # pop the element out of the array?
-    #     for j in range(sorted_list_index, (pivot - 1), -1):
-    #         # improvement - binary insert
-    #         comparison_element = items[j]
-    #         if j == pivot and comparison_element > current_element:
-    #             items.insert(pivot, current_element)
-    #         elif j == pivot and comparison_element == current_element:
-    #             items.insert(j + 1, current_element)
-    #         elif comparison_element < current_element:
-    #             # break the loop
-    #             items.insert(j + 1, current_element)
-    #             break
-    #     sorted_list_index += 1
     # TODO: Merge sorted halves into one list in sorted order
-        # merge the two half list (merge function but this does this in-place)
+    # merge the two half list (merge function but this does this in-place)
     sorted_list = merge(left, right)
-    return sorted_list
-    # start = 0
-    # while start <= len(items[:pivot]) and pivot < len(items):
-    #     if start == pivot and items[start] < items[pivot]:
-    #         value = items.pop(pivot)
-    #         items.insert(start, value)
-    #         pivot += 1
-    #     elif items[start] < items[pivot]:
-    #         start += 1
-    #     elif items[start] > items[pivot]:
-    #         value = items.pop(pivot)
-    #         items.insert(start, value)
-    #         pivot += 1
-    #     else:
-    #         start += 1
-    
+    # change the input items
+    items[:] = sorted_list
+    return items
+
+
 def merge_sort(items):
     """Sort given items by splitting list into two approximately equal halves,
     sorting each recursively, and merging results into a list in sorted order.
@@ -145,8 +105,10 @@ def merge_sort(items):
 
     else:
         sorted_list = items
+    # change the input items 
+    items[:] = sorted_list
+    return items
 
-    return sorted_list
 
 def partition(items, low, high):
     """Return index `p` after in-place partitioning given items in range

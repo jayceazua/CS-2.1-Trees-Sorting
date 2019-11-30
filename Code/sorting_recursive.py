@@ -128,7 +128,7 @@ def partition(items, low, high):
     `[low...high]` by choosing a pivot (TODO: document your method here) from
     that range, moving pivot into index `p`, items less than pivot into range
     `[low...p-1]`, and items greater than pivot into range `[p+1...high]`.
-    TODO: Running time: O(n) Why and under what conditions?
+    TODO: Running time: O(n/2) Why and under what conditions?
     TODO: Memory usage: O(1) Why and under what conditions?"""
     pivot = get_pivot(items, low, high)
     pivot_value = items[pivot]

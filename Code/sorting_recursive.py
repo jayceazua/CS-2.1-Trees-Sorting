@@ -110,27 +110,71 @@ def merge_sort(items):
     return items
 
 
+def quick_selection(items, low, high):
+    for i in range(low, high):
+        min_index = i
+        for j in range(i + 1, high + 1):
+            if items[j] < items[min_index]:
+                min_index = j
+
+            if min_index != i:
+                items[i], items[min_index] = items[min_index], items[i]
+
+
+def get_pivot(items, low, high):
+    """
+        Returns the pivot index; medium of three values.
+    """
+    mid = low + (high - low) // 2
+    pivot = high
+    if items[low] < items[mid]:
+        if items[mid] < items[high]:
+            pivot = mid
+    elif items[low] < items[high]:
+        pivot = low
+    return pivot
+
 def partition(items, low, high):
     """Return index `p` after in-place partitioning given items in range
     `[low...high]` by choosing a pivot (TODO: document your method here) from
     that range, moving pivot into index `p`, items less than pivot into range
     `[low...p-1]`, and items greater than pivot into range `[p+1...high]`.
-    TODO: Running time: ??? Why and under what conditions?
-    TODO: Memory usage: ??? Why and under what conditions?"""
-    # TODO: Choose a pivot any way and document your method in docstring above
-    # TODO: Loop through all items in range [low...high]
-    # TODO: Move items less than pivot into front of range [low...p-1]
-    # TODO: Move items greater than pivot into back of range [p+1...high]
-    # TODO: Move pivot item into final position [p] and return index p
+    TODO: Running time: O(n) Why and under what conditions?
+    TODO: Memory usage: O(1) Why and under what conditions?"""
+
+    pivot = get_pivot(items, low, high)
+    pivot_value = items[pivot]
+
+    items[pivot], items[low] = items[low], items[pivot]
+    border = low
+
+    for i in range(low, high + 1):
+    
+        if items[i] < pivot_value:
+            border += 1
+            items[i], items[border] = items[border], items[i]
+    
+    items[low], items[border] = items[border], items[low]
+    
+    return border
  
 
 def quick_sort(items, low=None, high=None):
     """Sort given items in place by partitioning items in range `[low...high]`
     around a pivot item and recursively sorting each remaining sublist range.
-    TODO: Best case running time: ??? Why and under what conditions?
-    TODO: Worst case running time: ??? Why and under what conditions?
-    TODO: Memory usage: ??? Why and under what conditions?"""
+    TODO: Best case running time: O(n log n) Why and under what conditions?
+    TODO: Worst case running time: O(n^2) Why and under what conditions?
+    TODO: Memory usage: O(1) Why and under what conditions?"""
     # TODO: Check if high and low range bounds have default values (not given)
+    if not low and not high:
+        low = 0
+        high = len(items) - 1
     # TODO: Check if list or range is so small it's already sorted (base case)
-    # TODO: Partition items in-place around a pivot and get index of pivot
-    # TODO: Sort each sublist range by recursively calling quick sort
+    if low < high:
+        # TODO: Partition items in-place around a pivot and get index of pivot
+        p = partition(items, low, high)
+        # TODO: Sort each sublist range by recursively calling quick sort
+        quick_sort(items, low, p - 1)
+        quick_sort(items, p + 1, high)
+    
+

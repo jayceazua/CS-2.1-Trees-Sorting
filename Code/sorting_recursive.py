@@ -102,23 +102,11 @@ def merge_sort(items):
         right = merge_sort(items[pivot:])
         left = merge_sort(items[:pivot])
         sorted_list = merge(left, right)
-
     else:
         sorted_list = items
     # change the input items 
     items[:] = sorted_list
     return items
-
-
-def quick_selection(items, low, high):
-    for i in range(low, high):
-        min_index = i
-        for j in range(i + 1, high + 1):
-            if items[j] < items[min_index]:
-                min_index = j
-
-            if min_index != i:
-                items[i], items[min_index] = items[min_index], items[i]
 
 
 def get_pivot(items, low, high):
@@ -134,6 +122,7 @@ def get_pivot(items, low, high):
         pivot = low
     return pivot
 
+
 def partition(items, low, high):
     """Return index `p` after in-place partitioning given items in range
     `[low...high]` by choosing a pivot (TODO: document your method here) from
@@ -141,7 +130,6 @@ def partition(items, low, high):
     `[low...p-1]`, and items greater than pivot into range `[p+1...high]`.
     TODO: Running time: O(n) Why and under what conditions?
     TODO: Memory usage: O(1) Why and under what conditions?"""
-
     pivot = get_pivot(items, low, high)
     pivot_value = items[pivot]
 
@@ -149,13 +137,11 @@ def partition(items, low, high):
     border = low
 
     for i in range(low, high + 1):
-    
         if items[i] < pivot_value:
             border += 1
             items[i], items[border] = items[border], items[i]
     
     items[low], items[border] = items[border], items[low]
-    
     return border
  
 

@@ -153,9 +153,10 @@ def quick_sort(items, low=None, high=None):
     TODO: Worst case running time: O(n^2) Why and under what conditions?
     TODO: Memory usage: O(1) Why and under what conditions?"""
     # TODO: Check if high and low range bounds have default values (not given)
-    if not low and not high:
+    if low == None and high == None:
         low = 0
         high = len(items) - 1
+
     # TODO: Check if list or range is so small it's already sorted (base case)
     if low < high:
         # TODO: Partition items in-place around a pivot and get index of pivot

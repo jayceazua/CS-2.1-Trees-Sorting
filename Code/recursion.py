@@ -12,8 +12,8 @@ def fibonacci(n):
         raise ValueError('fibonacci is undefined for n = {!r}'.format(n))
     # Implement fibonacci_recursive, _memoized, and _dynamic below, then
     # change this to call your implementation to verify it passes all tests
-    return fibonacci_recursive(n)
-    # return fibonacci_memoized(n)
+    # return fibonacci_recursive(n)
+    return fibonacci_memoized(n)
     # return fibonacci_dynamic(n)
 
 
@@ -24,7 +24,8 @@ def fibonacci_recursive(n):
     # Check if n is larger than the base cases
     elif n > 1:
         # Call function recursively and add the results together
-        return fibonacci_recursive(n - 1) + fibonacci_recursive(n - 2)
+        return fibonacci_recursive(n - 1) + \
+            fibonacci_recursive(n - 2)
 
 @lru_cache(maxsize=None)
 def fibonacci_memoized(n):

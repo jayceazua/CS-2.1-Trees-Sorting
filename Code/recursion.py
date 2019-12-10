@@ -1,4 +1,5 @@
 #!python
+from functools import lru_cache
 
 def fibonacci(n):
     """fibonacci(n) returns the n-th number in the Fibonacci sequence,
@@ -25,12 +26,16 @@ def fibonacci_recursive(n):
         # Call function recursively and add the results together
         return fibonacci_recursive(n - 1) + fibonacci_recursive(n - 2)
 
-
+@lru_cache(maxsize=None)
 def fibonacci_memoized(n):
     # TODO: Memoize the fibonacci function's recursive implementation here
-    pass
     # Once implemented, change fibonacci (above) to call fibonacci_memoized
     # to verify that your memoized implementation passes all test cases
+    if n == 0 or n == 1:
+        return n
+    
+    return fibonacci_memoized(n - 1) + \
+        fibonacci_memoized(n - 2)
 
 
 def fibonacci_dynamic(n):
@@ -38,6 +43,7 @@ def fibonacci_dynamic(n):
     pass
     # Once implemented, change fibonacci (above) to call fibonacci_dynamic
     # to verify that your dynamic implementation passes all test cases
+    
 
 
 def main():

@@ -13,8 +13,8 @@ def fibonacci(n):
     # Implement fibonacci_recursive, _memoized, and _dynamic below, then
     # change this to call your implementation to verify it passes all tests
     # return fibonacci_recursive(n)
-    return fibonacci_memoized(n)
-    # return fibonacci_dynamic(n)
+    # return fibonacci_memoized(n)
+    return fibonacci_dynamic(n)
 
 
 def fibonacci_recursive(n):
@@ -44,6 +44,23 @@ def fibonacci_dynamic(n):
     pass
     # Once implemented, change fibonacci (above) to call fibonacci_dynamic
     # to verify that your dynamic implementation passes all test cases
+    if n < 2:
+        return n
+    
+    n_1 = 1
+    n_2 = 0
+    res = 0
+
+    i = 2
+
+    while i <= n:
+        res = n_1 + n_2
+
+        n_2 = n_1
+        n_1 = res
+        i += 1
+    
+    return res
     
 
 

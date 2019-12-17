@@ -235,9 +235,9 @@ class AVLTree:
             else:
                 y.parent.right_child = y
         z.height = 1 + max(self.get_height(z.left_child),
-                            self.get_height(z.right_child))
+                           self.get_height(z.right_child))
         y.height = 1 + max(self.get_height(y.left_child),
-                            self.get_height(y.right_child))
+                           self.get_height(y.right_child))
 
     def _left_rotate(self, z):
         sub_root = z.parent
@@ -257,9 +257,9 @@ class AVLTree:
             else:
                 y.parent.right_child = y
         z.height = 1 + max(self.get_height(z.left_child),
-                            self.get_height(z.right_child))
+                           self.get_height(z.right_child))
         y.height = 1 + max(self.get_height(y.left_child),
-                            self.get_height(y.right_child))
+                           self.get_height(y.right_child))
 
     def get_height(self, cur_node):
         if not cur_node:
@@ -270,3 +270,13 @@ class AVLTree:
         left = self.get_height(cur_node.left_child)
         right = self.get_height(cur_node.right_child)
         return cur_node.left_child if left >= right else cur_node.right_child
+
+
+"""
+# Acknowledgements:
+ - https://www.geeksforgeeks.org/avl-tree-set-1-insertion/
+ - https://www.geeksforgeeks.org/avl-tree-set-2-deletion/
+ - https://www.geeksforgeeks.org/tag/avl-tree/
+ - https://www.cs.usfca.edu/~galles/visualization/AVLtree.html
+ - https://www.w3schools.in/data-structures-tutorial/avl-trees/
+"""

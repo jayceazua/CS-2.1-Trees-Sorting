@@ -274,6 +274,7 @@ class AVLTree:
 
 """
 # Acknowledgements:
+ - Alan Davis; Instructor at Make School
  - https://www.geeksforgeeks.org/avl-tree-set-1-insertion/
  - https://www.geeksforgeeks.org/avl-tree-set-2-deletion/
  - https://www.geeksforgeeks.org/tag/avl-tree/
